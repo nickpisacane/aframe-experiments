@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+    <script src="/thumb-mover.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+      </a-assets>
+      <!--<a-entity
+        gltf-model="url(/assets/scene.gltf)"
+        animation-mixer
+      ></a-entity>-->
+      <a-entity id="foo" position="0 1.6 0">
+        <a-camera></a-camera>
+        <a-entity oculus-touch-controls="hand: left"></a-entity>
+        <a-entity oculus-touch-controls="hand: right" tracked-controls thumb-mover='target: #foo'></a-entity>
+        
+      </a-entity>
+      <a-entity environment="preset: tron; skyType: gradient; skyColor: black"></a-entity>
+    </a-scene>
+    <script>
+      f = document.querySelector('#foo');
+    </script>
+  </body>
+</html>
